@@ -1,0 +1,112 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap');
+
+:root {
+  --page: #f5f7fb;
+  --surface: #ffffff;
+  --ink: #18233a;
+  --muted: #7b879b;
+  --line: #e7ebf2;
+  --accent: #4263eb;
+  --accent-dark: #3152d5;
+  --cell: #e7ecf5;
+  --cell-hover: #dbe4f4;
+  --revealed: #f8faff;
+  --shadow: 0 18px 55px rgba(35, 52, 88, 0.08);
+}
+
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--page); color: var(--ink); font-family: 'DM Sans', sans-serif; }
+button, select { font: inherit; }
+button { cursor: pointer; }
+.page-shell { width: min(100% - 36px, 960px); margin: 0 auto; }
+.site-header { height: 82px; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid #e9edf4; }
+.brand { display: inline-flex; align-items: center; gap: 10px; color: var(--ink); font-family: Manrope, sans-serif; font-weight: 800; font-size: 20px; text-decoration: none; letter-spacing: -0.7px; }
+.brand-mark { display: grid; place-items: center; width: 34px; height: 34px; border-radius: 11px; color: white; background: var(--accent); font-size: 22px; }
+.brand-dot { color: var(--accent); }
+.header-note { color: var(--muted); font-size: 13px; }
+.intro { padding: 43px 0 25px; text-align: center; }
+.eyebrow { margin: 0 0 10px; color: var(--accent); font-size: 10px; font-weight: 700; letter-spacing: 2px; }
+h1, h2 { font-family: Manrope, sans-serif; }
+h1 { margin: 0; font-size: clamp(32px, 5vw, 43px); letter-spacing: -1.8px; line-height: 1.2; }
+.intro-copy { margin: 12px 0 0; color: var(--muted); font-size: 14px; }
+.game-card { background: var(--surface); border: 1px solid #e9edf4; border-radius: 20px; box-shadow: var(--shadow); padding: 22px; }
+.game-toolbar { display: flex; justify-content: space-between; align-items: center; gap: 16px; }
+.difficulty-label { display: flex; flex-direction: column; gap: 7px; color: var(--muted); font-size: 11px; font-weight: 700; letter-spacing: .5px; text-transform: uppercase; }
+.mode-name { color: var(--ink); font-size: 13px; font-weight: 700; letter-spacing: 0; text-transform: none; }
+button:focus-visible { outline: 3px solid #b9c7ff; outline-offset: 2px; }
+.new-game-button { border: 0; border-radius: 9px; padding: 11px 17px; background: var(--accent); color: white; font-size: 13px; font-weight: 700; transition: background .15s, transform .15s; }
+.new-game-button:hover { background: var(--accent-dark); transform: translateY(-1px); }
+.status-bar { display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; margin: 21px 0 14px; padding: 12px 16px; border: 1px solid var(--line); border-radius: 12px; background: #fbfcff; }
+.stat { display: flex; align-items: center; gap: 10px; }
+.timer-stat { justify-content: flex-end; }
+.stat-icon { color: var(--accent); font-size: 23px; line-height: 1; }
+.mine-icon { color: #e45e68; }
+.stat-label { display: block; margin-bottom: 2px; color: var(--muted); font-size: 9px; font-weight: 700; letter-spacing: 1px; }
+.stat strong { font-family: Manrope, sans-serif; font-size: 18px; font-variant-numeric: tabular-nums; letter-spacing: 1px; }
+.face-button { width: 39px; height: 39px; border: 1px solid var(--line); border-radius: 12px; background: white; font-size: 21px; transition: transform .15s; }
+.face-button:hover { transform: scale(1.06); }
+.board-wrap { overflow: auto; max-width: 100%; padding: 2px; }
+.board { display: grid; gap: 3px; width: max-content; min-width: max-content; margin: 0 auto; padding: 5px; border-radius: 9px; background: #dce3ef; user-select: none; }
+.cell { display: grid; place-items: center; width: var(--cell-size, 31px); height: var(--cell-size, 31px); padding: 0; border: 0; border-radius: 5px; background: var(--cell); box-shadow: inset 0 -2px 0 rgba(50, 67, 102, .09); color: #25314a; font-size: 14px; font-weight: 800; line-height: 1; transition: background .1s, transform .1s; }
+.cell:not(.revealed):hover { background: var(--cell-hover); }
+.cell:not(.revealed):active { transform: scale(.96); }
+.cell.revealed { background: var(--revealed); box-shadow: inset 0 0 0 1px #e5eaf3; cursor: default; }
+.cell.flagged { background: #fff1f1; color: #df515d; }
+.cell.mine-hit { background: #ffdfe1; }
+.cell.mine-shown { color: #df515d; }
+.cell.wrong-flag { color: #df515d; background: #ffe4e5; }
+.cell.n1 { color: #3568df; } .cell.n2 { color: #25835e; } .cell.n3 { color: #df515d; } .cell.n4 { color: #6c51c8; } .cell.n5 { color: #b75b30; } .cell.n6 { color: #1694a5; } .cell.n7 { color: #343b4d; } .cell.n8 { color: #8490a3; }
+.message { min-height: 20px; padding: 13px 4px 1px; text-align: center; color: var(--muted); font-size: 12px; }
+.message.success { color: #23815d; font-weight: 700; }
+.message.danger { color: #d64d5a; font-weight: 700; }
+.game-footer { display: flex; align-items: center; justify-content: center; flex-wrap: wrap; gap: 18px; margin-top: 13px; color: var(--muted); font-size: 11px; }
+kbd { padding: 4px 6px; border: 1px solid #e2e7f0; border-radius: 5px; background: #f9faff; color: #5d6980; font-family: inherit; font-size: 10px; }
+.flag-mode { display: inline-block; border: 1px solid var(--line); border-radius: 7px; padding: 6px 9px; background: white; color: var(--muted); font-size: 11px; }
+.flag-mode.active { border-color: #f1b9bd; background: #fff1f1; color: #d64d5a; }
+.how-to-play { display: flex; gap: 14px; max-width: 630px; margin: 28px auto 0; padding: 0 10px; }
+.how-icon { flex: 0 0 30px; display: grid; place-items: center; width: 30px; height: 30px; border-radius: 10px; background: #e8edff; color: var(--accent); font-weight: 800; }
+.how-to-play h2 { margin: 2px 0 6px; font-size: 14px; letter-spacing: -.2px; }
+.how-to-play p { margin: 0; color: var(--muted); font-size: 12px; line-height: 1.7; }
+.site-footer { padding: 35px 0 26px; text-align: center; color: #9aa4b5; font-size: 11px; }
+.site-footer span { padding: 0 5px; color: var(--accent); }
+@media (max-width: 600px) {
+  .page-shell { width: min(100% - 22px, 960px); }
+  .site-header { height: 66px; }
+  .header-note { font-size: 11px; }
+  .intro { padding: 32px 0 21px; }
+  .intro-copy { max-width: 300px; margin: 10px auto 0; font-size: 13px; line-height: 1.6; }
+  .game-card { padding: 13px 9px 16px; border-radius: 15px; }
+  .game-toolbar { padding: 0 4px; }
+  select { min-width: 0; width: 100%; max-width: 205px; padding: 9px 6px; font-size: 11px; }
+  .new-game-button { padding: 10px 12px; white-space: nowrap; font-size: 12px; }
+  .status-bar { margin-top: 15px; padding: 10px 9px; }
+  .stat { gap: 6px; }
+  .stat-icon { font-size: 18px; }
+  .stat-label { font-size: 8px; }
+  .stat strong { font-size: 15px; }
+  .face-button { width: 35px; height: 35px; }
+  .board { gap: 2px; padding: 3px; }
+  .cell { --cell-size: min(5.2vw, 31px); border-radius: 3px; font-size: 11px; }
+  .game-footer { gap: 10px; font-size: 10px; }
+  .how-to-play { margin-top: 23px; padding: 0 4px; }
+}
+@media (max-width: 370px) { .header-note { display: none; } .cell { --cell-size: 25px; } }
+
+/* Expert mode: compact the page so the full board fits on a typical desktop screen. */
+@media (min-width: 601px) {
+  body.expert-mode .site-header { height: 58px; }
+  body.expert-mode .intro { padding: 14px 0 12px; }
+  body.expert-mode .eyebrow { margin-bottom: 5px; }
+  body.expert-mode h1 { font-size: 30px; }
+  body.expert-mode .intro-copy { margin-top: 6px; font-size: 12px; }
+  body.expert-mode .game-card { padding: 12px 16px; }
+  body.expert-mode .status-bar { margin: 10px 0 8px; padding: 7px 12px; }
+  body.expert-mode .cell { --cell-size: 22px; border-radius: 3px; font-size: 12px; }
+  body.expert-mode .board { gap: 2px; padding: 4px; }
+  body.expert-mode .message { min-height: 16px; padding: 7px 4px 0; }
+  body.expert-mode .game-footer { margin-top: 7px; gap: 14px; }
+  body.expert-mode .how-to-play { margin-top: 12px; }
+  body.expert-mode .site-footer { padding: 12px 0 10px; }
+}
+/* Keep the board's full backing visible; only the wrapper may scroll on narrow screens. */
+.board-wrap { overflow-x: auto; overflow-y: hidden; }

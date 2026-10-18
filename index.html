@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#f5f7fb">
+  <title>Minesweeper — Clear the Grid</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="page-shell">
+    <header class="site-header">
+      <a class="brand" href="#" aria-label="Minesweeper home">
+        <span class="brand-mark" aria-hidden="true">✣</span>
+        <span>minefield<span class="brand-dot">.</span></span>
+      </a>
+      <span class="header-note">vibecoded by faye</span>
+    </header>
+
+    <section class="intro" aria-labelledby="page-title">
+      <p class="eyebrow">THE CLASSIC PUZZLE</p>
+      <h1 id="page-title">Clear the grid.</h1>
+      <p class="intro-copy">Find every safe square, flag the mines, and trust your logic.</p>
+    </section>
+
+    <section class="game-card" aria-label="Minesweeper game">
+      <div class="game-toolbar">
+        <div class="difficulty-label" aria-label="Game size">
+          <span>CLASSIC MINESWEEPER</span>
+          <strong class="mode-name">Intermediate · 16 × 16 · 40 mines</strong>
+        </div>
+        <button id="new-game" class="new-game-button" type="button">New game</button>
+      </div>
+
+      <div class="status-bar" aria-live="polite">
+        <div class="stat"><span class="stat-icon mine-icon" aria-hidden="true">✹</span><div><span class="stat-label">MINES LEFT</span><strong id="mine-count">040</strong></div></div>
+        <button id="reset-face" class="face-button" type="button" aria-label="Restart game">🙂</button>
+        <div class="stat timer-stat"><span class="stat-icon" aria-hidden="true">◷</span><div><span class="stat-label">TIME</span><strong id="timer">000</strong></div></div>
+      </div>
+
+      <div class="board-wrap">
+        <div id="board" class="board" role="grid" aria-label="Minesweeper board"></div>
+      </div>
+
+      <div id="message" class="message" role="status">Choose a square to begin.</div>
+      <div class="game-footer">
+        <span><kbd>Click</kbd> reveal</span>
+        <span><kbd>Right-click</kbd> flag</span>
+        <button id="flag-mode" class="flag-mode" type="button" aria-pressed="false">⚑ Flag mode: off</button>
+      </div>
+    </section>
+
+    <section class="how-to-play">
+      <div class="how-icon" aria-hidden="true">?</div>
+      <div><h2>How to play</h2><p>Numbers tell you how many mines touch that square. Use them to work out where the mines are, then flag those spots. Reveal every safe square to win.</p></div>
+    </section>
+    <footer class="site-footer">hi <span>·</span> like and subscribe.</footer>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>
